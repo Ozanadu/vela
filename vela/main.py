@@ -13,11 +13,12 @@ def main():
         currentTime = datetime.datetime.now()
         luxReading = ('%.2f Lux' % sensor.lux)
 
-        with open('./data/lux.csv', 'a+') as file:
+        with open('../data/lux.csv', 'a+') as file:
+            data = [currentTime, luxReading]
             writer = csv.writer(file, delimiter=',')
-            writer.writerow(currentTime, luxReading)
+            writer.writerow(data)
         
-        time.sleep(1)
+        time.sleep(60)
 
 if __name__ == "__main__":
     main()
